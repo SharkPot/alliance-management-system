@@ -1,28 +1,46 @@
 import React from 'react';
-import logo from '../logo.svg';
 import {
 	Switch,
 	Route
 } from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+
 import About from '../Components/About';
 import Home from '../Components/Home';
+import HeaderBar from '../Components/HeaderBar';
 import './App.css';
 
+const useStyles = makeStyles((theme) => ({
+	root:{
+		flexGrow: 1
+	},
+	paper: {
+		padding: theme.spacing(2),
+		color: theme.palette.text.secondary
+	}
+}));
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-      <Switch>
-			<Route path='/about'>
-				<About />
-			</Route>
-			<Route path='/'>
-				<Home />
-			</Route>
-	  </Switch>
-    </div>
+	const classes = useStyles();
+
+	return (
+		<div>
+			<HeaderBar />
+			<Grid container spacing={3} justify='center'>
+				<Paper className={classes.paper}>
+					<Switch>
+							<Route path='/about'>
+								<About />
+							</Route>
+							<Route path='/'>
+								<Home />
+							</Route>
+					</Switch>
+				</Paper>
+			</Grid>
+		</div>
   );
 }
 
