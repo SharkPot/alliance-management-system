@@ -35,7 +35,7 @@ function App() {
 	return (
 		<div className='background'>
 			<HeaderBar />
-			<Grid container className={classes.root} spacing={2} justify='center'>
+			<Grid container justify='center'>
 				<Grid item xs={6}>
 					<Paper className={classes.paper}>
 						<Switch>
