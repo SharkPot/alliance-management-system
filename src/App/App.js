@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 	backgroundTheme:{
 		background: theme.palette.primary
+	},
+	sideBar:{
+		paddingLeft: theme.spacing(2)
 	}
 }));
 
@@ -48,7 +51,7 @@ function App() {
 						</Switch>
 					</Paper>
 				</Grid>
-				<Grid item xs={3}>
+				<Grid item xs={3} className={classes.sideBar}>
 					<Paper className={classes.paper}>
 						<SideBar />
 					</Paper>
