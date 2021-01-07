@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 	control: {
 		padding: theme.spacing(2)
+	},
+	backgroundTheme:{
+		background: theme.palette.primary
 	}
 }));
 
@@ -30,7 +33,7 @@ function App() {
 	const classes = useStyles();
 
 	return (
-		<div>
+		<div className='background'>
 			<HeaderBar />
 			<Grid container className={classes.root} spacing={2} justify='center'>
 				<Grid item xs={6}>
