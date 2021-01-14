@@ -1,12 +1,12 @@
-const HEADER_LIST = [
-    {
-        title:'Home',
-        url:'/'
+const HEADER_LIST = {
+    Home: {
+        title: 'Home',
+        url: '/'
     },
-    {
-        title:'About',
-        url:'/about'
+    About: {
+        title: 'About',
+        url: '/about'
     }
-]
+}
 
 export default HEADER_LIST;
