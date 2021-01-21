@@ -34,9 +34,9 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
 	const classes = useStyles();
-
+	
 	return (
-		<div className='background'>
+		<div>
 			<HeaderBar />
 			<Grid container justify='center'>
 				<Grid item xs={6}>
