@@ -14,6 +14,8 @@ import HEADER_LIST from './headers_setup';
 const useStyles = makeStyles((theme) => ({
 	toolbar: {
 		borderBottom: `1px solid ${theme.palette.divider}`,
+		background: theme.palette.background.paper,
+		color: theme.palette.text.primary
 	},
 	toolbarTitle: {
 		flex: 1,
@@ -21,8 +23,8 @@ const useStyles = makeStyles((theme) => ({
 	toolbarSecondary: {
 		justifyContent: 'space-around',
 		overflowX: 'auto',
-		background: 'bisque',
-		marginBottom: theme.spacing(1)
+		background: theme.palette.grey[900],
+		color: theme.palette.text.secondary
 	},
 	toolbarLink: {
 		padding: theme.spacing(1),
@@ -83,23 +85,25 @@ export default function Header(props) {
 						{HEADER_LIST.About.title}
 					</Link>
 				</Button>
-				<Button onClick={handleClick}>Open</Button>
+				<Button onMouseEnter={handleClick}>Open</Button>
 				<Menu
 					anchorEl={anchorEl}
 					keepMounted
 					open={open}
 					onClose={handleClose}
+					MenuListProps={{ onMouseLeave: handleClose }}
 					TransitionComponent={Fade}
 				>
 					<MenuItem onClick={handleClose}>M1</MenuItem>
 					<MenuItem onClick={handleClose}>M2</MenuItem>
 				</Menu>
-				<Button onClick={handleClick}>Open2</Button>
+				<Button onMouseEnter={handleClick}>Open2</Button>
 				<Menu
 					anchorEl={anchorEl}
 					keepMounted
 					open={open}
 					onClose={handleClose}
+					MenuListProps={{ onMouseLeave: handleClose }}
 					TransitionComponent={Fade}
 				>
 					<MenuItem onClick={handleClose}>M3</MenuItem>
