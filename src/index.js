@@ -20,11 +20,11 @@ const theme = createMuiTheme({
 ReactDOM.render(
 	<React.StrictMode>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-		<BrowserRouter>
-			<MuiThemeProvider theme={theme}>
+		<MuiThemeProvider theme={theme}>
+			<BrowserRouter>
 				<App />
-			</MuiThemeProvider>
-		</BrowserRouter>
+			</BrowserRouter>
+		</MuiThemeProvider>
 	</React.StrictMode>,
   document.getElementById('root')
 );
