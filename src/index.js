@@ -10,15 +10,7 @@ import 'fontsource-roboto';
 
 const theme = createMuiTheme({
 	palette: {
-		// type: 'dark',
-		primary: {
-			light: '#000',
-			main: '#000',
-			dark: '#fff'
-		},
-		secondary: {
-			main: '#f44336',
-		},
+		type: 'dark',
 	},
 	typography: { 
 	   useNextVariants: true
