@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
 	toolbarLink: {
 		padding: theme.spacing(1),
 		flexShrink: 0,
-		textDecoration: 'none'
+		textDecoration: 'none',
+		color: theme.palette.text.secondary
 	},
 }));
 
@@ -62,26 +63,12 @@ export default function Header(props) {
 			</Toolbar>
 			<Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
 				<Button>
-					<Link
-						color="inherit"
-						noWrap
-						underline='none'
-						key={HEADER_LIST.Home.title}
-						variant="body2"
-						href={HEADER_LIST.Home.url}
-						className={classes.toolbarLink}>
+					<Link to={HEADER_LIST.Home.url} className={classes.toolbarLink}>
 						{HEADER_LIST.Home.title}
 					</Link>
 				</Button>
 				<Button>
-					<Link
-						color="inherit"
-						noWrap
-						underline='none'
-						key={HEADER_LIST.About.title}
-						variant="body2"
-						href={HEADER_LIST.About.url}
-						className={classes.toolbarLink}>
+					<Link to={HEADER_LIST.About.url}  className={classes.toolbarLink}>
 						{HEADER_LIST.About.title}
 					</Link>
 				</Button>
