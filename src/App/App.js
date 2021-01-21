@@ -1,7 +1,8 @@
 import React from 'react';
 import {
 	Switch,
-	Route
+	Route,
+	Router
 } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -19,13 +20,14 @@ const useStyles = makeStyles((theme) => ({
 	},
 	paper: {
 		padding: theme.spacing(2),
-		color: theme.palette.text.secondary
+		color: theme.palette.text.primary
 	},
 	control: {
 		padding: theme.spacing(2)
 	},
 	backgroundTheme:{
-		background: theme.palette.primary
+		background: theme.palette.background.default,
+		paddingTop: theme.spacing(2)
 	},
 	sideBar:{
 		paddingLeft: theme.spacing(2)
@@ -34,11 +36,11 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
 	const classes = useStyles();
-	
+
 	return (
 		<div>
 			<HeaderBar />
-			<Grid container justify='center'>
+			<Grid container justify='center' className={classes.backgroundTheme}>
 				<Grid item xs={6}>
 					<Paper className={classes.paper}>
 						<Switch>
