@@ -1,66 +1,121 @@
 import React from 'react';
-import {
-	Switch,
-	Route,
-	Router
-} from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-import About from '../Components/About';
-import Home from '../Components/Home';
-import HeaderBar from '../Components/HeaderBar';
 import SideBar from '../Components/SideBar';
-import './App.css';
+import HeaderBar from '../Components/HeaderBar';
+
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
-	root:{
-		flexGrow: 1
+	root: {
+		display: 'flex',
 	},
-	paper: {
-		padding: theme.spacing(2),
-		color: theme.palette.text.primary
+	drawer: {
+		[theme.breakpoints.up('sm')]: {
+			width: drawerWidth,
+			flexShrink: 0,
+		},
 	},
-	control: {
-		padding: theme.spacing(2)
+	appBar: {
+		[theme.breakpoints.up('sm')]: {
+			width: `calc(100% - ${drawerWidth}px)`,
+			marginLeft: drawerWidth,
+		},
 	},
-	backgroundTheme:{
-		background: theme.palette.background.default,
-		paddingTop: theme.spacing(2)
+	menuButton: {
+		marginRight: theme.spacing(2),
+		[theme.breakpoints.up('sm')]: {
+			display: 'none',
+		},
 	},
-	sideBar:{
-		paddingLeft: theme.spacing(2)
-	}
+	// necessary for content to be below app bar
+	toolbar: theme.mixins.toolbar,
+	drawerPaper: {
+		width: drawerWidth,
+	},
+	content: {
+		flexGrow: 1,
+		padding: theme.spacing(3),
+	},
 }));
 
-function App() {
+function App(props) {
+	const { window } = props;
 	const classes = useStyles();
+	const theme = useTheme();
+	const [mobileOpen, setMobileOpen] = React.useState(false);
+
+	const handleDrawerToggle = () => {
+		console.log('handleDrawerToggle called');
+		setMobileOpen(!mobileOpen);
+	};
+
+	const container = window !== undefined ? () => window().document.body : undefined;
 
 	return (
-		<div>
-			<HeaderBar />
-			<Grid container justify='center' className={classes.backgroundTheme}>
-				<Grid item xs={6}>
-					<Paper className={classes.paper}>
-						<Switch>
-								<Route path='/about'>
-									<About />
-								</Route>
-								<Route path='/'>
-									<Home />
-								</Route>
-						</Switch>
-					</Paper>
-				</Grid>
-				<Grid item xs={3} className={classes.sideBar}>
-					<Paper className={classes.paper}>
+		<div className={classes.root}>
+			<HeaderBar menuOnClick={handleDrawerToggle}/>
+			<nav className={classes.drawer} aria-label="mailbox folders">
+				<Hidden smUp implementation="css">
+					<Drawer
+						container={container}
+						variant="temporary"
+						anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+						open={mobileOpen}
+						onClose={handleDrawerToggle}
+						classes={{
+							paper: classes.drawerPaper,
+						}}
+						ModalProps={{
+							keepMounted: true, // Better open performance on mobile.
+						}}
+					>
 						<SideBar />
-					</Paper>
-				</Grid>
-			</Grid>
+					</Drawer>
+				</Hidden>
+				<Hidden xsDown implementation="css">
+					<Drawer
+						classes={{
+							paper: classes.drawerPaper,
+						}}
+						variant="permanent"
+						open
+					>
+						<SideBar />
+					</Drawer>
+				</Hidden>
+			</nav>
+			<main className={classes.content}>
+				<div className={classes.toolbar} />
+				<Typography paragraph>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+					ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
+					facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
+					gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
+					donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+					adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
+					Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
+					imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
+					arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
+					donec massa sapien faucibus et molestie ac.
+        </Typography>
+				<Typography paragraph>
+					Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
+					facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
+					tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
+					consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
+					vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
+					hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
+					tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
+					nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
+					accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
+        </Typography>
+			</main>
 		</div>
-  );
+	);
 }
 
 export default App;
