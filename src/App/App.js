@@ -47,12 +47,6 @@ function App(props) {
 		setMobileOpen(!mobileOpen);
 	};
 
-	const handleMobileOnRoute = (title) => {
-		console.log('handleMobileOnRoute called',title);
-		setTitle(title);
-		handleDrawerToggle();
-	}
-
 	const handleOnRoute = (title) => {
 		console.log('handleOnRoute called',title);
 		setTitle(title);
@@ -78,7 +72,7 @@ function App(props) {
 							keepMounted: true, // Better open performance on mobile.
 						}}
 					>
-						<SideBar onRoute={handleMobileOnRoute}/>
+						<SideBar onClick={handleDrawerToggle}/>
 					</Drawer>
 				</Hidden>
 				<Hidden xsDown implementation="css">
@@ -89,7 +83,7 @@ function App(props) {
 						variant="permanent"
 						open
 					>
-						<SideBar onRoute={handleOnRoute}/>
+						<SideBar onClick={() => {}}/>
 					</Drawer>
 				</Hidden>
 			</nav>
@@ -98,7 +92,7 @@ function App(props) {
 				<Grid container justify='center' alignItems='stretch'>
 					<Grid item xs={11}>
 						<Paper className={classes.gridPaper}>
-							<Router />
+							<Router onRoute={handleOnRoute}/>
 						</Paper>
 					</Grid>
 				</Grid>

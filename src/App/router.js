@@ -4,12 +4,16 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '../Components/Home';
 import About from '../Components/About';
 
-function Router() {
+function Router(props) {
 
 	return (
 		<Switch>
-			<Route path='/about' component={About} />
-			<Route path='/' component={Home} />
+			<Route path='/about'>
+                <About onRoute={props.onRoute} />
+            </Route>
+			<Route path='/'>
+                <Home onRoute={props.onRoute} />
+            </Route>
 		</Switch>
 	)
 }
