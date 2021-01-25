@@ -26,7 +26,7 @@ function SideBar(props) {
 				key={title} 
 				component={Link} 
 				to={url} 
-				onClick={() => props.onRoute(title)}
+				onClick={() => props.onClick(title)}
 			>
 				<ListItemText primary={title} />
 			</ListItem>
