@@ -43,7 +43,7 @@ export default function HeaderBar(props) {
 						<MenuIcon />
 					</IconButton>
 					<Typography variant="h6" noWrap>
-						Responsive drawer
+						{props.title}
           			</Typography>
 				</Toolbar>
 			</AppBar>
