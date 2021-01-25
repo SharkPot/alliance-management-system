@@ -40,17 +40,29 @@ function App(props) {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [mobileOpen, setMobileOpen] = React.useState(false);
+	const [title, setTitle] = React.useState('');
 
 	const handleDrawerToggle = (event) => {
 		console.log('handleDrawerToggle called',event);
 		setMobileOpen(!mobileOpen);
 	};
 
+	const handleMobileOnRoute = (title) => {
+		console.log('handleMobileOnRoute called',title);
+		setTitle(title);
+		handleDrawerToggle();
+	}
+
+	const handleOnRoute = (title) => {
+		console.log('handleOnRoute called',title);
+		setTitle(title);
+	}
+
 	const container = window !== undefined ? () => window().document.body : undefined;
 
 	return (
 		<div className={classes.root}>
-			<HeaderBar menuOnClick={handleDrawerToggle}/>
+			<HeaderBar menuOnClick={handleDrawerToggle} title={title}/>
 			<nav className={classes.drawer} aria-label="mailbox folders">
 				<Hidden smUp implementation="css">
 					<Drawer
@@ -66,7 +78,7 @@ function App(props) {
 							keepMounted: true, // Better open performance on mobile.
 						}}
 					>
-						<SideBar />
+						<SideBar onRoute={handleMobileOnRoute}/>
 					</Drawer>
 				</Hidden>
 				<Hidden xsDown implementation="css">
@@ -77,7 +89,7 @@ function App(props) {
 						variant="permanent"
 						open
 					>
-						<SideBar />
+						<SideBar onRoute={handleOnRoute}/>
 					</Drawer>
 				</Hidden>
 			</nav>
