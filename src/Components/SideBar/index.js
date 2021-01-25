@@ -16,20 +16,30 @@ const useStyles = makeStyles((theme) => ({
 	toolbar: theme.mixins.toolbar,
 }));
 
-function SideBar() {
+function SideBar(props) {
 	const classes = useStyles();
+
+	const listItem = (title,url) => {
+		return (
+			<ListItem 
+				button 
+				key={title} 
+				component={Link} 
+				to={url} 
+				onClick={() => props.onRoute(title)}
+			>
+				<ListItemText primary={title} />
+			</ListItem>
+		)
+	}
 
 	return (
 		<div>
 			<div className={classes.toolbar} />
 			<Divider />
 			<List>
-				<ListItem button key={HEADER_LIST.Home.title} component={Link} to={HEADER_LIST.Home.url}>
-					<ListItemText primary={HEADER_LIST.Home.title} />
-				</ListItem>
-				<ListItem button key={HEADER_LIST.About.title} component={Link} to={HEADER_LIST.About.url}>
-					<ListItemText primary={HEADER_LIST.About.title} />
-				</ListItem>
+				{listItem(HEADER_LIST.Home.title,HEADER_LIST.Home.url)}
+				{listItem(HEADER_LIST.About.title,HEADER_LIST.About.url)}
 			</List>
 			<Divider />
 			<List>
