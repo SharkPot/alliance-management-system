@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 
 import HEADER_LIST from './sidebar_setup';
+import logo from '../../logo.svg'
 
 const useStyles = makeStyles((theme) => ({
 	// necessary for content to be below app bar
@@ -35,7 +36,9 @@ function SideBar(props) {
 
 	return (
 		<div>
-			<div className={classes.toolbar} />
+			<div className={classes.toolbar}>
+				<img src={logo} />
+			</div>
 			<Divider />
 			<List>
 				{listItem(HEADER_LIST.Home.title,HEADER_LIST.Home.url)}
