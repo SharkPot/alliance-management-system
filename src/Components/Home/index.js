@@ -2,34 +2,53 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
-    divider:{
-        marginTop: theme.spacing(2)
-    }
+	divider: {
+		marginTop: theme.spacing(2)
+	}
 }));
 
 function Home() {
-    const classes = useStyles();
-    return (
-        <div>
-            <Typography variant='subtitle1'>Urgent Quest Schedule</Typography>
-            <div>
-                <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=YWJoaW5hYmRhczE5OTZAZ21haWwuY29t&amp;src=cmMxYWY3bDFzdjNtdDk5NWh2anFwaTRxYjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%237986CB&amp;color=%239E69AF&amp;mode=AGENDA&amp;showTitle=0&amp;showTabs=1&amp;showPrint=0&amp;showCalendars=0" style={{border:"solid 1px #777"}} width="800" height="600" frameborder="0" scrolling="no"></iframe>
-            </div>
-            <Divider className={classes.divider} />
-            <Typography variant='subtitle1'>Casino Boosts</Typography>
-            <div>
-                <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=YWJoaW5hYmRhczE5OTZAZ21haWwuY29t&amp;src=OTNzMGZiNGcxdmF0djQzY3JjYXIzNjA2ZzhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=cmMxYWY3bDFzdjNtdDk5NWh2anFwaTRxYjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%237986CB&amp;color=%23795548&amp;color=%239E69AF&amp;mode=AGENDA&amp;showTitle=0&amp;showPrint=0" style={{border:"solid 1px #777"}} width="800" height="600" frameborder="0" scrolling="no"></iframe>
-            </div>
-            {/* <div>
+	const classes = useStyles();
+	return (
+		<div>
+			<Typography variant='subtitle1'>Para 1</Typography>
+			<Typography paragraph>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+				ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
+				facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
+				gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
+				donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+				adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
+				Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
+				imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
+				arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
+				donec massa sapien faucibus et molestie ac.
+            </Typography>
+			<Divider className={classes.divider} />
+			<Typography variant='subtitle1'>Para 2</Typography>
+			<Typography paragraph>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+				ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
+				facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
+				gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
+				donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+				adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
+				Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
+				imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
+				arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
+				donec massa sapien faucibus et molestie ac.
+            </Typography>
+			<div>
                 <Link to='/about'>
                     Go to about
                 </Link>
-            </div> */}
-        </div>
-    )
+            </div>
+		</div>
+	)
 }
 
 export default Home;
