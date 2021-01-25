@@ -7,8 +7,6 @@ import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import HEADER_LIST from './headers_setup';
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -39,7 +37,7 @@ export default function HeaderBar(props) {
 						color="inherit"
 						aria-label="open drawer"
 						edge="start"
-						onClick={props.menuOnClick}
+						onClick={() => props.menuOnClick(1)}
 						className={classes.menuButton}
 					>
 						<MenuIcon />
