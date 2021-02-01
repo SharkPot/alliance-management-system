@@ -33,7 +33,7 @@ function Router(props) {
 			<Route path='/guides/bouncer'>
 				<ClassGuide onRoute={props.onRoute} />
 			</Route>
-			<Route path='/guides/summone'>
+			<Route path='/guides/summoner'>
 				<ClassGuide onRoute={props.onRoute} />
 			</Route>
 			<Route path='/guides/hero'>
