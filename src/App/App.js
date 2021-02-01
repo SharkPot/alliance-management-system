@@ -90,7 +90,7 @@ function App(props) {
 			<main className={classes.content}>
 				<div className={classes.toolbar} />
 				<Grid container justify='center' alignItems='stretch'>
-					<Grid item xs={11}>
+					<Grid item xs={12}>
 						<Paper className={classes.gridPaper}>
 							<Router onRoute={handleOnRoute}/>
 						</Paper>
