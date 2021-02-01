@@ -7,8 +7,9 @@ function ClassGuide(props) {
 	let location = useLocation();
 	let title = '';
 	let guideObj = {};
+	let guide = [];
     console.log('ClassGuide:location',location);
-    useEffect(() => {
+    // useEffect(() => {
         console.log('ClassGuide:props',props);
         switch(location.pathname){
             case GUIDE_LIST.Hunter.path:
@@ -51,16 +52,22 @@ function ClassGuide(props) {
 				title = GUIDE_LIST.Luster.name
 				break;
 		}
-		guideObj = GUIDE_LIST[title];
+		guide = GUIDE_LIST[title].guide;
+		console.log('guide',guide);
 		props.onRoute('Class guide ' + title)
-	})
+	// })
 
     return (
         <div>
             Class guide
-            <div>
-            <iframe src="https://docs.google.com/document/d/e/2PACX-1vTh9bKWeowUgXc5UYobcIjsD3LgXSJ0J4qNhRjXeql0Jz5qa9WrtkhMAlzIWNH6vPdmIL1UWCYjg0Zu/pub?embedded=true" width='100%' height='770px'></iframe>
-            </div>
+			{guide.map((val) =>(
+				<div>iframesrc:{JSON.stringify(val)}
+            		<iframe src={val.embedUrl} width='100%' height='770px'></iframe>
+            	</div>
+			))}
+            {/* <div>
+            	<iframe src="https://docs.google.com/document/d/e/2PACX-1vTh9bKWeowUgXc5UYobcIjsD3LgXSJ0J4qNhRjXeql0Jz5qa9WrtkhMAlzIWNH6vPdmIL1UWCYjg0Zu/pub?embedded=true" width='100%' height='770px'></iframe>
+            </div> */}
         </div>
     )
 }
