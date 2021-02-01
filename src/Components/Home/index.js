@@ -21,7 +21,7 @@ function Home(props) {
 	return (
 		<div>
 			<Typography variant='subtitle1'>Para 1</Typography>
-			<iframe title='UQ Calendar' src="https://calendar.google.com/calendar/embed?src=nujrnhog654g3v0m0ljmjbp790%40group.calendar.google.com&amp;mode=AGENDA&amp;color=%23616161&amp;hl=en&amp;showNav=0&amp;showTabs=0&amp;showPrint=0&amp;showCalendars=0" scrolling="no" width="100%" height="500" frameBorder="0"></iframe>
+			<iframe title='UQ Calendar' src="https://calendar.google.com/calendar/embed?src=nujrnhog654g3v0m0ljmjbp790%40group.calendar.google.com&amp;mode=AGENDA&amp;color=%23616161&amp;hl=en&amp;showNav=0&amp;showTabs=0&amp;showPrint=0&amp;showCalendars=0" scrolling="no" width="100%" height="500" frameBorder="0" />
 			<Divider className={classes.divider} />
 			<Typography variant='subtitle1'>Para 2</Typography>
 			<Typography paragraph>
