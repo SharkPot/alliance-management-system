@@ -1,6 +1,6 @@
 const HEADER_LIST = {
     Home: {
-        title: 'Home',
+        title: 'Calendar',
         url: '/'
     },
     About: {
