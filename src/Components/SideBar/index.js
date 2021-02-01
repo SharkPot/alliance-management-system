@@ -29,19 +29,19 @@ import class_ET from '../../Resources/class_etoille.bmp'
 import class_LU from '../../Resources/class_luster.bmp'
 
 const CLASS_DATA = {
-	HU: { icon: class_HU, name: 'Hunter' },
-	FI: { icon: class_FI, name: 'Fighter' },
-	RA: { icon: class_RA, name: 'Ranger' },
-	GU: { icon: class_GU, name: 'Gunner' },
-	FO: { icon: class_FO, name: 'Force' },
-	TE: { icon: class_TE, name: 'Techer' },
-	BR: { icon: class_BR, name: 'Braver' },
-	BO: { icon: class_BO, name: 'Bouncer' },
-	SU: { icon: class_SU, name: 'Summoner' },
-	HE: { icon: class_HE, name: 'Hero' },
-	PH: { icon: class_PH, name: 'Phantom' },
-	ET: { icon: class_ET, name: 'Etoille' },
-	LU: { icon: class_LU, name: 'Luster' },
+	HU: { icon: class_HU, name: 'Hunter', url:'/guides/hunter' },
+	FI: { icon: class_FI, name: 'Fighter', url:'/guides/fighter' },
+	RA: { icon: class_RA, name: 'Ranger', url:'/guides/ranger' },
+	GU: { icon: class_GU, name: 'Gunner', url:'/guides/gunner' },
+	FO: { icon: class_FO, name: 'Force', url:'/guides/force' },
+	TE: { icon: class_TE, name: 'Techer', url:'/guides/techer' },
+	BR: { icon: class_BR, name: 'Braver', url:'/guides/braver' },
+	BO: { icon: class_BO, name: 'Bouncer', url:'/guides/bouncer' },
+	SU: { icon: class_SU, name: 'Summoner', url:'/guides/summoner' },
+	HE: { icon: class_HE, name: 'Hero', url:'/guides/hero' },
+	PH: { icon: class_PH, name: 'Phantom', url:'/guides/phantom' },
+	ET: { icon: class_ET, name: 'Etoille', url:'/guides/etoille' },
+	LU: { icon: class_LU, name: 'Luster', url:'/guides/luster' },
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -84,7 +84,13 @@ function SideBar(props) {
 				<AccordionDetails>
 					<List>
 						{Object.keys(CLASS_DATA).map((key) => (
-							<ListItem button key={CLASS_DATA[key].name}>
+							<ListItem 
+								button 
+								key={CLASS_DATA[key].name} 
+								component={Link} 
+								to={CLASS_DATA[key].url}
+								onClick={() => props.onClick(CLASS_DATA[key].name)}
+							>
 								<ListItemIcon>
 									<img src={CLASS_DATA[key].icon} alt={CLASS_DATA[key].name} />
 								</ListItemIcon>
