@@ -1,73 +1,81 @@
 import React, { useEffect } from 'react';
+import Divider from '@material-ui/core/Divider';
+import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from 'react-router-dom';
 
 import GUIDE_LIST from './class_guide_setup';
 
+const useStyles = makeStyles((theme) => ({
+	divider: {
+		marginTop: theme.spacing(2),
+		marginBottom: theme.spacing(2),
+	},
+}));
+
 function ClassGuide(props) {
+	const classes = useStyles();
 	let location = useLocation();
-	let title = '';
-	let guideObj = {};
-	let guide = [];
-    console.log('ClassGuide:location',location);
-    // useEffect(() => {
-        console.log('ClassGuide:props',props);
+
+	const [title,setTitle] = React.useState('');
+	const [guide,setGuide] = React.useState([]);
+
+    useEffect(() => {
+		let titleKey = '';
         switch(location.pathname){
             case GUIDE_LIST.Hunter.path:
-				title = GUIDE_LIST.Hunter.name
+				titleKey = GUIDE_LIST.Hunter.name
 				break;
             case GUIDE_LIST.Fighter.path:
-				title = GUIDE_LIST.Fighter.name
+				titleKey = GUIDE_LIST.Fighter.name
 				break;
             case GUIDE_LIST.Ranger.path:
-				title = GUIDE_LIST.Ranger.name
+				titleKey = GUIDE_LIST.Ranger.name
 				break;
             case GUIDE_LIST.Gunner.path:
-				title = GUIDE_LIST.Gunner.name
+				titleKey = GUIDE_LIST.Gunner.name
 				break;
             case GUIDE_LIST.Force.path:
-				title = GUIDE_LIST.Force.name
+				titleKey = GUIDE_LIST.Force.name
 				break;
             case GUIDE_LIST.Techer.path:
-				title = GUIDE_LIST.Techer.name
+				titleKey = GUIDE_LIST.Techer.name
 				break;
             case GUIDE_LIST.Braver.path:
-				title = GUIDE_LIST.Braver.name
+				titleKey = GUIDE_LIST.Braver.name
 				break;
             case GUIDE_LIST.Bouncer.path:
-				title = GUIDE_LIST.Bouncer.name
+				titleKey = GUIDE_LIST.Bouncer.name
 				break;
             case GUIDE_LIST.Summoner.path:
-				title = GUIDE_LIST.Summoner.name
+				titleKey = GUIDE_LIST.Summoner.name
 				break;
             case GUIDE_LIST.Hero.path:
-				title = GUIDE_LIST.Hero.name
+				titleKey = GUIDE_LIST.Hero.name
 				break;
             case GUIDE_LIST.Phantom.path:
-				title = GUIDE_LIST.Phantom.name
+				titleKey = GUIDE_LIST.Phantom.name
 				break;
             case GUIDE_LIST.Etoille.path:
-				title = GUIDE_LIST.Etoille.name
+				titleKey = GUIDE_LIST.Etoille.name
 				break;
             case GUIDE_LIST.Luster.path:
-				title = GUIDE_LIST.Luster.name
+				titleKey = GUIDE_LIST.Luster.name
 				break;
 		}
-		guide = GUIDE_LIST[title].guide;
-		console.log('guide',guide);
+		setTitle(titleKey);
+		setGuide(GUIDE_LIST[titleKey].guide);
 		props.onRoute('Class guide ' + title)
-	// })
+	})
 
     return (
         <div>
-            Class guide
 			{guide.map((val) =>(
-				<div>iframesrc:{JSON.stringify(val)}
-            		<iframe src={val.embedUrl} width='100%' height='770px'></iframe>
+				<div key={val.title}>
+					{val.title}
+					{val.embedUrl && <iframe src={val.embedUrl} width='100%' height='500px'></iframe> }
+					{ guide.length > 1 && <Divider className={classes.divider} />}
             	</div>
 			))}
-            {/* <div>
-            	<iframe src="https://docs.google.com/document/d/e/2PACX-1vTh9bKWeowUgXc5UYobcIjsD3LgXSJ0J4qNhRjXeql0Jz5qa9WrtkhMAlzIWNH6vPdmIL1UWCYjg0Zu/pub?embedded=true" width='100%' height='770px'></iframe>
-            </div> */}
         </div>
     )
 }
