@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Divider from '@material-ui/core/Divider';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from 'react-router-dom';
 
@@ -10,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
 		marginTop: theme.spacing(2),
 		marginBottom: theme.spacing(2),
 	},
+	iframeDiv:{
+		backgroundColor: theme.palette.text.primary
+	}
 }));
 
 function ClassGuide(props) {
@@ -71,8 +75,15 @@ function ClassGuide(props) {
         <div>
 			{guide.map((val) =>(
 				<div key={val.title}>
-					{val.title}
-					{val.embedUrl && <iframe src={val.embedUrl} width='100%' height='500px'></iframe> }
+					<Typography variant='h5' gutterBottom>
+						{val.title}
+					</Typography>
+					<Typography>
+						For better experience read it : <a href={val.url} target='_blank'>here</a>
+					</Typography>
+					<div className={classes.iframeDiv}>
+						{val.embedUrl && <iframe src={val.embedUrl} width='100%' height='500px'></iframe> }
+					</div>
 					{ guide.length > 1 && <Divider className={classes.divider} />}
             	</div>
 			))}
