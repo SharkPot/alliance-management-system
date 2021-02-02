@@ -4,13 +4,11 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Collapse from '@material-ui/core/Collapse';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Typography from '@material-ui/core/Typography';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import ExpandLess from '@material-ui/icons/ExpandLess';
 
 import HEADER_LIST from './sidebar_setup';
 import logo from '../../Resources/logo.svg'
@@ -47,10 +45,18 @@ const CLASS_DATA = {
 const useStyles = makeStyles((theme) => ({
 	// necessary for content to be below app bar
 	toolbar: theme.mixins.toolbar,
+	nested: {
+		paddingLeft: theme.spacing(4),
+	},
 }));
 
 function SideBar(props) {
 	const classes = useStyles();
+	const [openList,setListOpen] = React.useState(false);
+
+	const handleListClick = () => {
+		setListOpen(!openList);
+	}
 
 	const listItem = (title, url) => {
 		return (
@@ -66,6 +72,43 @@ function SideBar(props) {
 		)
 	}
 
+	const expandableListItem = (title) => {
+		return (
+			<ListItem
+				button
+				key={title}
+				onClick={handleListClick}
+			>
+				<ListItemText primary={title} />
+				{openList ? <ExpandLess /> : <ExpandMore />}
+			</ListItem>
+		)
+	}
+
+	const expandedList = (listData) => {
+		return (
+			<Collapse in={openList} timeout='auto' unmountOnExit>
+				<List component='div' disablePadding>
+						{Object.keys(listData).map((key) => (
+							<ListItem
+								className={classes.nested}
+								button 
+								key={listData[key].name} 
+								component={Link} 
+								to={listData[key].url}
+								onClick={() => props.onClick(listData[key].name)}
+							>
+								<ListItemIcon>
+									<img src={listData[key].icon} alt={listData[key].name} />
+								</ListItemIcon>
+								<ListItemText primary={listData[key].name} />
+							</ListItem>
+						))}
+					</List>
+			</Collapse>
+		)
+	}
+
 	return (
 		<div>
 			<div className={classes.toolbar}>
@@ -75,31 +118,9 @@ function SideBar(props) {
 			<List>
 				{listItem(HEADER_LIST.Home.title, HEADER_LIST.Home.url)}
 				{listItem(HEADER_LIST.About.title, HEADER_LIST.About.url)}
+				{expandableListItem('Classes Guide')}
+				{expandedList(CLASS_DATA)}
 			</List>
-			<Divider />
-			<Accordion>
-				<AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-					<Typography>Classes Guide</Typography>
-				</AccordionSummary>
-				<AccordionDetails>
-					<List>
-						{Object.keys(CLASS_DATA).map((key) => (
-							<ListItem 
-								button 
-								key={CLASS_DATA[key].name} 
-								component={Link} 
-								to={CLASS_DATA[key].url}
-								onClick={() => props.onClick(CLASS_DATA[key].name)}
-							>
-								<ListItemIcon>
-									<img src={CLASS_DATA[key].icon} alt={CLASS_DATA[key].name} />
-								</ListItemIcon>
-								<ListItemText primary={CLASS_DATA[key].name} />
-							</ListItem>
-						))}
-					</List>
-				</AccordionDetails>
-			</Accordion>
 			<Divider />
 		</div>
 	)
