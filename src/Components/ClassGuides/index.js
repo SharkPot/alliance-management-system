@@ -65,11 +65,13 @@ function ClassGuide(props) {
             case GUIDE_LIST.Luster.path:
 				titleKey = GUIDE_LIST.Luster.name
 				break;
+			default:
+				titleKey = '';
 		}
 		setTitle(titleKey);
 		setGuide(GUIDE_LIST[titleKey].guide);
 		props.onRoute('Class guide ' + title)
-	})
+	},[props,location,title,guide])
 
     return (
         <div>
@@ -79,10 +81,10 @@ function ClassGuide(props) {
 						{val.title}
 					</Typography>
 					<Typography>
-						For better experience read it : <a href={val.url} target='_blank'>here</a>
+						For better experience read it : <a href={val.url} target='_blank' rel='noreferrer'>here</a>
 					</Typography>
 					<div className={classes.iframeDiv}>
-						{val.embedUrl && <iframe src={val.embedUrl} width='100%' height='750px'></iframe> }
+						{val.embedUrl && <iframe title={val.title} src={val.embedUrl} width='100%' height='750px'></iframe> }
 					</div>
 					{ guide.length > 1 && <Divider className={classes.divider} />}
             	</div>
