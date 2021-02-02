@@ -82,7 +82,7 @@ function ClassGuide(props) {
 						For better experience read it : <a href={val.url} target='_blank'>here</a>
 					</Typography>
 					<div className={classes.iframeDiv}>
-						{val.embedUrl && <iframe src={val.embedUrl} width='100%' height='500px'></iframe> }
+						{val.embedUrl && <iframe src={val.embedUrl} width='100%' height='750px'></iframe> }
 					</div>
 					{ guide.length > 1 && <Divider className={classes.divider} />}
             	</div>
