@@ -4,11 +4,18 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '../Components/Home';
 import About from '../Components/About';
 import ClassGuide from '../Components/ClassGuides';
+import GeneralGuide from '../Components/GeneralGuides';
 
 function Router(props) {
 
 	return (
 		<Switch>
+			<Route path='/guides/meseta'>
+				<GeneralGuide onRoute={props.onRoute} />
+			</Route>
+			<Route path='/guides/gear'>
+				<GeneralGuide onRoute={props.onRoute} />
+			</Route>
 			<Route path='/guides/hunter'>
 				<ClassGuide onRoute={props.onRoute} />
 			</Route>
