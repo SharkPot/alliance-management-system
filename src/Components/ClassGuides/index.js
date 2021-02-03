@@ -71,7 +71,7 @@ function ClassGuide(props) {
 		}
 		setTitle(titleKey);
 		setGuide(GUIDE_LIST[titleKey].guide);
-		props.onRoute('Class guide ' + title)
+		props.onRoute('Class Guide: ' + title)
 	},[props,location,title,guide])
 
     return (
