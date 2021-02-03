@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import Hidden from '@material-ui/core/Hidden';
 import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from 'react-router-dom';
 
@@ -75,18 +76,29 @@ function ClassGuide(props) {
 
     return (
         <div>
-			{guide.map((val) =>(
+			{guide.map((val,index) =>(
 				<div key={val.title}>
-					<Typography variant='h5' gutterBottom>
-						{val.title}
-					</Typography>
-					<Typography>
-						For better experience read it : <a href={val.url} target='_blank' rel='noreferrer'>here</a>
-					</Typography>
-					<div className={classes.iframeDiv}>
-						{val.embedUrl && <iframe title={val.title} src={val.embedUrl} width='100%' height='750px'></iframe> }
-					</div>
-					{ guide.length > 1 && <Divider className={classes.divider} />}
+					<Hidden smUp implementation="css">
+						<Typography variant='h5' gutterBottom>
+							{val.title}
+						</Typography>
+						<Typography>
+							For better mobile experience read it : <a href={val.url} target='_blank' rel='noreferrer'>here</a>
+						</Typography>
+						{ guide.length > 1 && guide.length !== index + 1 && <Divider className={classes.divider} />}
+					</Hidden>
+					<Hidden xsDown implementation="css">
+						<Typography variant='h5' gutterBottom>
+							{val.title}
+						</Typography>
+						<Typography>
+							For better experience read it : <a href={val.url} target='_blank' rel='noreferrer'>here</a>
+						</Typography>
+						<div className={classes.iframeDiv}>
+							{val.embedUrl && <iframe title={val.title} src={val.embedUrl} width='100%' height='750px'></iframe> }
+						</div>
+						{ guide.length > 1 && guide.length !== index + 1 && <Divider className={classes.divider} />}
+					</Hidden>
             	</div>
 			))}
         </div>
