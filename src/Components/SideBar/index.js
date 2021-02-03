@@ -25,6 +25,8 @@ import class_HE from '../../Resources/class_hero.bmp'
 import class_PH from '../../Resources/class_phantom.bmp'
 import class_ET from '../../Resources/class_etoille.bmp'
 import class_LU from '../../Resources/class_luster.bmp'
+import mesetaImg from '../../Resources/meseta.bmp';
+import rainbowStarImg from '../../Resources/rainbow_star.bmp';
 
 const CLASS_DATA = {
 	HU: { icon: class_HU, name: 'Hunter', url:'/guides/hunter' },
@@ -42,6 +44,11 @@ const CLASS_DATA = {
 	LU: { icon: class_LU, name: 'Luster', url:'/guides/luster' },
 }
 
+const BEG_GUIDE_DATA = {
+	MESETA: { icon: mesetaImg, name: 'Meseta', url:'/guides/meseta'},
+	GEAR: { icon: rainbowStarImg, name: 'Gear', url:'/guides/gear'}
+}
+
 const useStyles = makeStyles((theme) => ({
 	// necessary for content to be below app bar
 	toolbar: theme.mixins.toolbar,
@@ -52,10 +59,15 @@ const useStyles = makeStyles((theme) => ({
 
 function SideBar(props) {
 	const classes = useStyles();
-	const [openList,setListOpen] = React.useState(false);
+	const [openClassList,setClassListOpen] = React.useState(false);
+	const [openBegList,setBegListOpen] = React.useState(false);
 
-	const handleListClick = () => {
-		setListOpen(!openList);
+	const handleClassListClick = () => {
+		setClassListOpen(!openClassList);
+	}
+	
+	const handleBegListClick = () => {
+		setBegListOpen(!openBegList);
 	}
 
 	const listItem = (title, url) => {
@@ -72,12 +84,12 @@ function SideBar(props) {
 		)
 	}
 
-	const expandableListItem = (title) => {
+	const expandableListItem = (title,openList,handleClick) => {
 		return (
 			<ListItem
 				button
 				key={title}
-				onClick={handleListClick}
+				onClick={handleClick}
 			>
 				<ListItemText primary={title} />
 				{openList ? <ExpandLess /> : <ExpandMore />}
@@ -85,7 +97,7 @@ function SideBar(props) {
 		)
 	}
 
-	const expandedList = (listData) => {
+	const expandedList = (listData,openList) => {
 		return (
 			<Collapse in={openList} timeout='auto' unmountOnExit>
 				<List component='div' disablePadding>
@@ -118,8 +130,10 @@ function SideBar(props) {
 			<List>
 				{listItem(HEADER_LIST.Home.title, HEADER_LIST.Home.url)}
 				{listItem(HEADER_LIST.About.title, HEADER_LIST.About.url)}
-				{expandableListItem('Classes Guide')}
-				{expandedList(CLASS_DATA)}
+				{expandableListItem('Classes Guide',openClassList,handleClassListClick)}
+				{expandedList(CLASS_DATA,openClassList)}
+				{expandableListItem('Beginner Guide',openBegList,handleBegListClick)}
+				{expandedList(BEG_GUIDE_DATA,openBegList)}
 			</List>
 			<Divider />
 		</div>
