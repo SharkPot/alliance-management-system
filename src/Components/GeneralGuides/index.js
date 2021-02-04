@@ -49,7 +49,7 @@ function GeneralGuide(props) {
 	return (
 		<div>
 			{guide.map((val, index) => (
-				<Grid container justify={val.type === 'image' ? 'center' : 'flex-start'} alignItems='stretch'>
+				<Grid container justify={val.type === 'image' ? 'center' : 'flex-start'} alignItems='stretch' key={val.type+val.title}>
 					<Grid item key={val.title}>
 						{val.heading && <Typography variant='h6' className={classes.heading}>{val.heading}</Typography>}
 						{val.type === 'paragraph' && <Typography variant='body1' className={classes.nested}>{val.data}</Typography>}
