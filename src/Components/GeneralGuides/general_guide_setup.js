@@ -11,6 +11,7 @@ import ayerSwordImg from '../../Resources/ayer_sword.bmp';
 import brissaBackImg from '../../Resources/brissa_back.bmp';
 import saikiBackImg from '../../Resources/saiki_back.bmp';
 import hieiBackImg from '../../Resources/hiei_back.bmp';
+import phobosBackImg from '../../Resources/phobos_back.bmp';
 
 const GENERAL_GUIDE_LIST = {
     Meseta:[
@@ -72,12 +73,12 @@ const GENERAL_GUIDE_LIST = {
 		},
 		{
 			type:'paragraph',
-			data:'For units you are looking at Brissa, Saiki and Hiei sets. Hiei set should be available free of cost if completing story quests. Brissa set is available in RWB shop.',
+			data:'For units you are looking at Phobos, Brissa, Saiki and Hiei sets. Hiei set should be available free of cost if completing story quests. Brissa set is available in RWB1 shop. Phobos is easily obtained from story quests as well. Brissa is pretty easy to get very early on.',
 			title:'p2'
 		},
 		{
 			type:'image',
-			data:[brissaBackImg,saikiBackImg,hieiBackImg],
+			data:[phobosBackImg,brissaBackImg,saikiBackImg,hieiBackImg],
 			title:'i2'
 		},
 		{
