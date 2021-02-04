@@ -47,22 +47,24 @@ function GeneralGuide(props) {
 	}, [props, location, title, guide])
 
 	return (
-		<Grid container justify='center' alignItems='stretch'>
+		<div>
 			{guide.map((val, index) => (
-				<Grid item key={val.title}>
-					{val.heading && <Typography variant='h6' className={classes.heading}>{val.heading}</Typography>}
-					{val.type === 'paragraph' && <Typography variant='body1' className={classes.nested}>{val.data}</Typography>}
-					{val.type === 'special-paragraph' && <Typography variant='body1'>{val.data}</Typography>}
-					{val.type === 'image' && <Grid container justify='center' alignItems='stretch'>{val.data.map((item, imgIndex) => (
-							<Grid item xs key={'' + index + imgIndex}>
-								<img src={item} alt={'i' + index + imgIndex} className={classes.image} />
-							</Grid>
-					))
-					} </Grid>}
-					{val.type === 'list' && <List>{val.data.map((item) => (<ListItem key={item}><ListItemText primary={item} /></ListItem>))}</List>}
+				<Grid container justify={val.type === 'image' ? 'center' : 'flex-start'} alignItems='stretch'>
+					<Grid item key={val.title}>
+						{val.heading && <Typography variant='h6' className={classes.heading}>{val.heading}</Typography>}
+						{val.type === 'paragraph' && <Typography variant='body1' className={classes.nested}>{val.data}</Typography>}
+						{val.type === 'special-paragraph' && <Typography variant='body1'>{val.data}</Typography>}
+						{val.type === 'image' && <Grid container justify='center' alignItems='stretch'>{val.data.map((item, imgIndex) => (
+								<Grid item xs key={'' + index + imgIndex}>
+									<img src={item} alt={'i' + index + imgIndex} className={classes.image} />
+								</Grid>
+						))
+						} </Grid>}
+						{val.type === 'list' && <List>{val.data.map((item) => (<ListItem key={item}><ListItemText primary={item} /></ListItem>))}</List>}
+					</Grid>
 				</Grid>
 			))}
-		</Grid>
+		</div>
 	)
 }
 
