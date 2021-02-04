@@ -8,7 +8,6 @@ import trailSwordImg from '../../Resources/trail_sword.bmp';
 import rivSwordImg from '../../Resources/riv_sword.bmp';
 import stilSwordImg from '../../Resources/stil_sword.bmp';
 import ayerSwordImg from '../../Resources/ayer_sword.bmp';
-import crasSwordImg from '../../Resources/cras_sword.bmp';
 import brissaBackImg from '../../Resources/brissa_back.bmp';
 import saikiBackImg from '../../Resources/saiki_back.bmp';
 import hieiBackImg from '../../Resources/hiei_back.bmp';
@@ -112,7 +111,7 @@ const GENERAL_GUIDE_LIST = {
 		},
 		{
 			type:'image',
-			data:[ophiSwordImg,atlasexSwordImg,trailSwordImg,rivSwordImg,stilSwordImg,ayerSwordImg,crasSwordImg],
+			data:[ophiSwordImg,atlasexSwordImg,trailSwordImg,rivSwordImg,stilSwordImg,ayerSwordImg],
 			title:'i4'
 		}
 	]
