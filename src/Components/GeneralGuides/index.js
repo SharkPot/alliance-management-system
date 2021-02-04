@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from 'react-router-dom';
 
@@ -15,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
 	},
 	heading: {
 		paddingTop: theme.spacing(2)
+	},
+	image: {
+		padding: theme.spacing(2)
 	}
 }));
 
@@ -22,12 +26,12 @@ function GeneralGuide(props) {
 	const classes = useStyles();
 	let location = useLocation();
 
-	const [title,setTitle] = React.useState('');
-	const [guide,setGuide] = React.useState([]);
+	const [title, setTitle] = React.useState('');
+	const [guide, setGuide] = React.useState([]);
 
-    useEffect(() => {
+	useEffect(() => {
 		let titleKey = '';
-		switch(location.pathname) {
+		switch (location.pathname) {
 			case '/guides/meseta':
 				titleKey = 'Meseta';
 				break;
@@ -40,21 +44,26 @@ function GeneralGuide(props) {
 		setTitle(titleKey)
 		setGuide(GENERAL_GUIDE_LIST[titleKey]);
 		props.onRoute(title);
-	},[props,location,title,guide])
+	}, [props, location, title, guide])
 
-    return (
-        <div>
-			{guide.map((val) => (
-				<div key={val.title}>
+	return (
+		<Grid container justify='center' alignItems='stretch'>
+			{guide.map((val, index) => (
+				<Grid item key={val.title}>
 					{val.heading && <Typography variant='h6' className={classes.heading}>{val.heading}</Typography>}
 					{val.type === 'paragraph' && <Typography variant='body1' className={classes.nested}>{val.data}</Typography>}
 					{val.type === 'special-paragraph' && <Typography variant='body1'>{val.data}</Typography>}
-					{val.type === 'image' && <img src={val.data} alt={val.title} width='100%' />}
-					{val.type === 'list' && <List>{val.data.map((item) => (<ListItem key={item}><ListItemText primary={item}/></ListItem>))}</List>}
-				</div>
+					{val.type === 'image' && <Grid container justify='center' alignItems='stretch'>{val.data.map((item, imgIndex) => (
+							<Grid item xs key={'' + index + imgIndex}>
+								<img src={item} alt={'i' + index + imgIndex} className={classes.image} />
+							</Grid>
+					))
+					} </Grid>}
+					{val.type === 'list' && <List>{val.data.map((item) => (<ListItem key={item}><ListItemText primary={item} /></ListItem>))}</List>}
+				</Grid>
 			))}
-        </div>
-    )
+		</Grid>
+	)
 }
 
 export default GeneralGuide;
