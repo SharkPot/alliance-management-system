@@ -5,11 +5,15 @@ import Home from '../Components/Home';
 import About from '../Components/About';
 import ClassGuide from '../Components/ClassGuides';
 import GeneralGuide from '../Components/GeneralGuides';
+import ScratchTicket from '../Components/ScratchTickets';
 
 function Router(props) {
 
 	return (
 		<Switch>
+			<Route path='/scratch'>
+				<ScratchTicket onRoute={props.onRoute} />
+			</Route>
 			<Route path='/guides/meseta'>
 				<GeneralGuide onRoute={props.onRoute} />
 			</Route>
