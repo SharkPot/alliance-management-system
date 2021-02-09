@@ -134,6 +134,7 @@ function SideBar(props) {
 				{expandedList(CLASS_DATA,openClassList)}
 				{expandableListItem('Beginner Guide',openBegList,handleBegListClick)}
 				{expandedList(BEG_GUIDE_DATA,openBegList)}
+				{listItem(HEADER_LIST.ScratchTicket.title, HEADER_LIST.ScratchTicket.url)}
 			</List>
 			<Divider />
 		</div>

@@ -6,6 +6,10 @@ const HEADER_LIST = {
     About: {
         title: 'About',
         url: '/about'
+    },
+    ScratchTicket: {
+        title: 'AC and SG Scratch Tickets',
+        url: '/scratch'
     }
 }
 
