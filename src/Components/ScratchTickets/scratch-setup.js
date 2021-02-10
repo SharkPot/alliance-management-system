@@ -38,7 +38,29 @@ import ac_crd from '../../Resources/ac_crd.bmp';
 import ac_hrw from '../../Resources/ac_hrw.bmp';
 import ac_ul from '../../Resources/ac_ul.bmp';
 import ac_rcl from '../../Resources/ac_rcl.bmp';
-// ac :41
+
+import fun_mar2020 from '../../Resources/fun_mar2020.bmp';
+import fun_apr2020_pt1 from '../../Resources/fun_apr2020_pt1.bmp';
+import fun_apr2020_pt2 from '../../Resources/fun_apr2020_pt2.bmp';
+import fun_apr2020_pt3 from '../../Resources/fun_apr2020_pt3.bmp';
+import fun_may2020_pt1 from '../../Resources/fun_may2020_pt1.bmp';
+import fun_may2020_pt2 from '../../Resources/fun_may2020_pt2.bmp';
+import fun_may2020_pt3 from '../../Resources/fun_may2020_pt3.bmp';
+import fun_jun2020_pt1 from '../../Resources/fun_jun2020_pt1.bmp';
+import fun_jun2020_pt2 from '../../Resources/fun_jun2020_pt2.bmp';
+import fun_jun2020_pt3 from '../../Resources/fun_jun2020_pt3.bmp';
+import fun_jul2020_pt1 from '../../Resources/fun_jul2020_pt1.bmp';
+import fun_jul2020_pt2 from '../../Resources/fun_jul2020_pt2.bmp';
+import fun_jul2020_pt3 from '../../Resources/fun_jul2020_pt3.bmp';
+import fun_aug2020_pt1 from '../../Resources/fun_aug2020_pt1.bmp';
+import fun_aug2020_pt2 from '../../Resources/fun_aug2020_pt2.bmp';
+import fun_aug2020_pt3 from '../../Resources/fun_aug2020_pt3.bmp';
+
+import sg_veran from '../../Resources/sg_veran.bmp';
+import sg_fahe from '../../Resources/sg_fahe.bmp';
+import sg_md from '../../Resources/sg_md.bmp';
+import sg_asgu from '../../Resources/sg_asgu.bmp';
+
 const SCRATCH_LIST = {
 	AC: [
 		{ name: 'Blazing Luster', img: ac_bllu, valid: '2/2/2021 - 3/2/2021' ,route:'https://pso2.com/news/scratch-tickets/blazingluster' },
@@ -84,8 +106,48 @@ const SCRATCH_LIST = {
 		{ name: 'Recruit Line ', img: ac_rcl, valid: '3/17/2020 - 4/28/2020 ' ,route:'' }
 
 	],
-	SG: [],
-	FUN: []
+	SG: [
+		{ name: 'Versus Annihilation', img: sg_veran, valid: '02/10/2021 - 08/11/2021' ,route:'https://pso2.com/news/scratch-tickets/versusannihilation' },
+		{ name: 'Astral Guardians', img: sg_asgu, valid: '12/1/2020 - 5/25/2021 ' ,route:'https://pso2.com/news/scratch-tickets/astralguardians' },
+		{ name: "Mother's Disciples", img: sg_md, valid: '9/9/2020 - 3/10/2021 ' ,route:'https://pso2.com/news/announcements/mothersdisciples' },
+		{ name: 'Fallen Heroes ', img: sg_fahe, valid: '7/15/2020 - 1/13/2021 ' ,route:'https://pso2.com/news/scratch-tickets/fallenheroes' },
+	],
+	FUN: [
+		{ name: 'March 2020 ', img: fun_mar2020, valid: '3/17/2020 - 3/31/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funmarch2020' },
+		{ name: 'April 2020 Part 1 ', img: fun_apr2020_pt1, valid: '3/31/2020 - 4/14/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funapril2020part1' },
+		{ name: 'April 2020 Part 2 ', img: fun_apr2020_pt2, valid: '4/14/2020 - 4/28/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funapril2020part2' },
+		{ name: 'April 2020 Part 3 ', img: fun_apr2020_pt3, valid: '4/28/2020 - 5/5/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funapril2020part3' },
+		{ name: 'May 2020 Part 1 ', img: fun_may2020_pt1, valid: '5/5/2020 - 5/12/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funmay2020part1' },
+		{ name: 'May 2020 Part 2 ', img: fun_may2020_pt2, valid: '5/12/2020 - 5/26/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funmay2020part2' },
+		{ name: 'May 2020 Part 3 ', img: fun_may2020_pt3, valid: '5/27/2020 - 6/2/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funmay2020part3' },
+		{ name: 'June 2020 Part 1 ', img: fun_jun2020_pt1, valid: '6/3/2020 - 6/9/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funjune2020part1' },
+		{ name: 'June 2020 Part 2 ', img: fun_jun2020_pt2, valid: '6/10/2020 - 6/23/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funjune2020part2' },
+		{ name: 'June 2020 Part 3 ', img: fun_jun2020_pt3, valid: '6/24/2020 - 7/07/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funjune2020part3' },
+		{ name: 'July 2020 Part 1 ', img: fun_jul2020_pt1, valid: '7/08/2020 - 7/21/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funjuly2020part1' },
+		{ name: 'July 2020 Part 2 ', img: fun_jul2020_pt2, valid: '7/22/2020 - 7/28/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funjuly2020part2' },
+		{ name: 'July 2020 Part 3 ', img: fun_jul2020_pt3, valid: '7/29/2020 - 8/04/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funjuly2020part3' },
+		{ name: 'August 2020 Part 1 ', img: fun_aug2020_pt1, valid: '8/05/2020 - 8/18/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funaugust2020part1' },
+		{ name: 'August 2020 Part 2 ', img: fun_aug2020_pt2, valid: '8/19/2020 - 8/25/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funaugust2020part2' },
+		{ name: 'August 2020 Part 3 ', img: fun_aug2020_pt3, valid: '8/26/2020 - 9/01/2020 ' ,route:'https://pso2.com/news/scratch-tickets/funaugust2020part3' },
+		{ name: 'Designer Dreams ', img: ac_dd, valid: '9/02/2020 - 9/15/2020 ' ,route:'https://pso2.com/news/scratch-tickets/designerdreams' },
+		{ name: 'Sakura Memories ', img: ac_sakm, valid: '9/02/2020 - 9/15/2020 ' ,route:'https://pso2.com/news/scratch-tickets/sakuramemories' },
+		{ name: 'Legendary Heroes', img: ac_lh, valid: '09/30/2020 - 10/07/2020' ,route:'https://pso2.com/news/scratch-tickets/legendaryheroes' },
+		{ name: 'Royal Fantasy', img: ac_rf, valid: '10/07/2020 - 10/14/2020' ,route:'https://pso2.com/news/scratch-tickets/royalfantasy' },
+		{ name: 'Dark Abyss', img: ac_daa, valid: '10/14/2020 - 10/28/2020' ,route:'https://pso2.com/news/scratch-tickets/darkabyss' },
+		{ name: 'Weyland Warriors', img: ac_wew, valid: '10/28/2020 - 11/04/2020' ,route:'https://pso2.com/news/scratch-tickets/weylandwarriors' },
+		{ name: 'Proud Monarch', img: ac_pm, valid: '11/04/2020 - 11/11/2020' ,route:'https://pso2.com/news/scratch-tickets/proudmonarch' },
+		{ name: 'Designer Dreams II', img: ac_dd2, valid: '11/11/2020 - 11/24/2020' ,route:'https://pso2.com/news/scratch-tickets/designerdreams2' },
+		{ name: 'Corrupted Heroes', img: ac_coh, valid: '11/25/2020 - 12/09/2020' ,route:'https://pso2.com/news/scratch-tickets/corruptedheroes' },
+		{ name: 'Ultimate Trinity', img: ac_ult, valid: '12/09/2020 - 12/16/2020' ,route:'https://pso2.com/news/scratch-tickets/ultimatetrinity' },
+		{ name: 'Holiday Wonderland', img: ac_how, valid: '12/16/2020 - 12/23/2020' ,route:'https://pso2.com/news/scratch-tickets/holidaywonderland' },
+		{ name: 'Throwback Collection II', img: ac_tc2, valid: '12/30/2020 - 01/06/2021' ,route:'https://pso2.com/news/scratch-tickets/throwbackcollectionII' },
+		{ name: 'Elegant Beginnings', img: ac_elbe, valid: '01/06/2021 - 01/13/2021' ,route:'https://pso2.com/news/scratch-tickets/elegantbeginnings' },
+		{ name: 'Idola Chronicles', img: ac_idch, valid: '01/13/2021 - 01/20/2021' ,route:'https://pso2.com/news/scratch-tickets/idolachronicles' },
+		{ name: 'Sweet Romance', img: ac_swro, valid: '01/20/2021 - 01/27/2020' ,route:'https://pso2.com/news/scratch-tickets/sweetromance' },
+		{ name: 'Designer Dreams III', img: ac_dd3, valid: '01/27/2021 - 02/03/2021' ,route:'https://pso2.com/news/scratch-tickets/designerdreamsIII' },
+		{ name: 'Blazing Luster', img: ac_bllu, valid: '02/03/2021 - 02/10/2021' ,route:'https://pso2.com/news/scratch-tickets/blazingluster' },
+		{ name: 'Versus Annihilation', img: sg_veran, valid: '02/10/2021 - 02/17/2021' ,route:'https://pso2.com/news/scratch-tickets/versusannihilation' },
+	]
 }
 
 export default SCRATCH_LIST;
