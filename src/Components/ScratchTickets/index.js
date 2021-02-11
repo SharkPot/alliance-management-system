@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 	},
 	cardRoot: {
-		padding: theme.spacing(2)
+		background: theme.palette.background.default
 	}
 }));
 
@@ -28,9 +28,9 @@ function ScratchTicket(props) {
 	const [data, setData] = React.useState(SCRATCH_LIST.AC);
 
 	const handleChange = (event, newValue) => {
-		console.log('handleChange:event',event);
-		console.log('handleChange:newValue',newValue);
-		switch(newValue) {
+		console.log('handleChange:event', event);
+		console.log('handleChange:newValue', newValue);
+		switch (newValue) {
 			case 0:
 				setData(SCRATCH_LIST.AC);
 				break;
@@ -51,6 +51,11 @@ function ScratchTicket(props) {
 		props.onRoute('Scratch Tickets')
 	})
 
+	const handleCardClick = (url) => {
+		const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+		if (newWindow) newWindow.opener = null
+	}
+
 	return (
 		<div className={classes.root}>
 			<Tabs
@@ -64,12 +69,11 @@ function ScratchTicket(props) {
 				<Tab label="SG" />
 				<Tab label="FUN" />
 			</Tabs>
-			<Grid container>
-				{data.map((val) => (
-					<Grid item xs={6}>
-						{/* {JSON.stringify(val)} */}
+			<Grid container spacing={2}>
+				{data.map((val, index) => (
+					<Grid key={'id' + val.name + index} item xs={12} sm={6}>
 						<Card className={classes.cardRoot}>
-							<CardActionArea>
+							<CardActionArea onClick={() => handleCardClick(val.route)}>
 								<CardMedia
 									component='img'
 									alt={'img' + val.name}
@@ -80,9 +84,6 @@ function ScratchTicket(props) {
 								<CardContent>
 									<Typography gutterBottom variant='h5' component='h2'>
 										{val.name}
-									</Typography>
-									<Typography variant='body2' color='textSecondary' component='p'>
-										{val.route}
 									</Typography>
 								</CardContent>
 							</CardActionArea>
