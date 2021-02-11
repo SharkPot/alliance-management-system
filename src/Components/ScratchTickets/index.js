@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { useLocation,useHistory } from 'react-router-dom';
 
 import SCRATCH_LIST from './scratch-setup';
 
@@ -30,32 +31,56 @@ const useStyles = makeStyles((theme) => ({
 
 function ScratchTicket(props) {
 	const classes = useStyles();
+	let location = useLocation();
+	let history = useHistory();
 	const [value, setValue] = React.useState(0);
 	const [data, setData] = React.useState(SCRATCH_LIST.AC);
 
 	const handleChange = (event, newValue) => {
 		console.log('handleChange:event', event);
 		console.log('handleChange:newValue', newValue);
+		let route = '';
 		switch (newValue) {
 			case 0:
-				setData(SCRATCH_LIST.AC);
+				route = '/scratch/ac';
 				break;
 			case 1:
-				setData(SCRATCH_LIST.SG);
+				route = '/scratch/sg';
 				break;
 			case 2:
-				setData(SCRATCH_LIST.FUN);
+				route = '/scratch/fun';
 				break;
 			default:
-				setData(SCRATCH_LIST.AC);
+				route = '/scratch/ac';
 				newValue = 0;
 		}
-		setValue(newValue);
+		history.push(route);
+		
 	};
 
 	useEffect(() => {
+		let key = '';
+		let index = 0;
+		switch (location.pathname) {
+			case '/scratch/ac':
+				key = 'AC';
+				index = 0;
+				break;
+			case '/scratch/sg':
+				key = 'SG';
+				index = 1;
+				break;
+			case '/scratch/fun':
+				key = 'FUN';
+				index = 2;
+				break;
+			default:
+				key = 'AC';
+		}
+		setData(SCRATCH_LIST[key]);
+		setValue(index);
 		props.onRoute('Scratch Tickets')
-	})
+	},[props,location,value,data])
 
 	const handleCardClick = (url) => {
 		const newWindow = window.open(url, '_blank', 'noopener,noreferrer')

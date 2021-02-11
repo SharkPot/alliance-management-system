@@ -11,7 +11,13 @@ function Router(props) {
 
 	return (
 		<Switch>
-			<Route path='/scratch'>
+			<Route path='/scratch/ac'>
+				<ScratchTicket onRoute={props.onRoute} />
+			</Route>
+			<Route path='/scratch/sg'>
+				<ScratchTicket onRoute={props.onRoute} />
+			</Route>
+			<Route path='/scratch/fun'>
 				<ScratchTicket onRoute={props.onRoute} />
 			</Route>
 			<Route path='/guides/meseta'>

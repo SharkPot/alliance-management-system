@@ -9,7 +9,7 @@ const HEADER_LIST = {
     },
     ScratchTicket: {
         title: 'AC and SG Scratch Tickets',
-        url: '/scratch'
+        url: '/scratch/ac'
     }
 }
 
