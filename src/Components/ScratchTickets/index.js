@@ -18,8 +18,14 @@ const useStyles = makeStyles((theme) => ({
 		flexGrow: 1,
 	},
 	cardRoot: {
-		background: theme.palette.background.default
+		background: theme.palette.background.default,
+	},
+	cardActionArea: {
+		'&:hover':{
+			background: theme.palette.action.selected
+		}
 	}
+
 }));
 
 function ScratchTicket(props) {
@@ -73,7 +79,7 @@ function ScratchTicket(props) {
 				{data.map((val, index) => (
 					<Grid key={'id' + val.name + index} item xs={12} sm={6}>
 						<Card className={classes.cardRoot}>
-							<CardActionArea onClick={() => handleCardClick(val.route)}>
+							<CardActionArea className={classes.cardActionArea} onClick={() => handleCardClick(val.route)}>
 								<CardMedia
 									component='img'
 									alt={'img' + val.name}
