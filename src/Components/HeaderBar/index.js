@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function HeaderBar(props) {
 	const classes = useStyles();
-	console.log('Header props',props);
+	// console.log('Header props',props);
 
 	return (
 		<div>

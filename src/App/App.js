@@ -43,12 +43,12 @@ function App(props) {
 	const [title, setTitle] = React.useState('');
 
 	const handleDrawerToggle = (event) => {
-		console.log('handleDrawerToggle called',event);
+		// console.log('handleDrawerToggle called',event);
 		setMobileOpen(!mobileOpen);
 	};
 
 	const handleOnRoute = (title) => {
-		console.log('handleOnRoute called',title);
+		// console.log('handleOnRoute called',title);
 		setTitle(title);
 	}
 
