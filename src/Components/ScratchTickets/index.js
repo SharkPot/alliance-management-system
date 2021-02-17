@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	cardRoot: {
 		background: theme.palette.background.default,
+		marginTop: theme.spacing(1)
 	},
 	cardActionArea: {
 		'&:hover':{
@@ -52,7 +53,6 @@ function ScratchTicket(props) {
 				break;
 			default:
 				route = '/scratch/ac';
-				newValue = 0;
 		}
 		history.push(route);
 		
@@ -83,6 +83,7 @@ function ScratchTicket(props) {
 	},[props,location,value,data])
 
 	const handleCardClick = (url) => {
+		if(!url) return;
 		const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
 		if (newWindow) newWindow.opener = null
 	}
@@ -102,7 +103,7 @@ function ScratchTicket(props) {
 			</Tabs>
 			<Grid container spacing={2}>
 				{data.map((val, index) => (
-					<Grid key={'id' + val.name + index} item xs={12} sm={6}>
+					<Grid key={'id' + val.name + index} id={val.id} item xs={12} sm={6}>
 						<Card className={classes.cardRoot}>
 							<CardActionArea className={classes.cardActionArea} onClick={() => handleCardClick(val.route)}>
 								<CardMedia
@@ -118,14 +119,17 @@ function ScratchTicket(props) {
 									</Typography>
 								</CardContent>
 							</CardActionArea>
-							<CardActions>
+							{/* <CardActions>
 								<Button size='small' color='primary'>
 									Share
 								</Button>
 								<Button size='small' color='primary'>
 									Learn More
 								</Button>
-							</CardActions>
+								<Typography>
+										{location.pathname + '#' + val.id}
+									</Typography>
+							</CardActions> */}
 						</Card>
 					</Grid>
 				))}
