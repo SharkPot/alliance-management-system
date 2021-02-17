@@ -4,6 +4,8 @@ import Hidden from '@material-ui/core/Hidden';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider, unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import SideBar from '../Components/SideBar';
 import HeaderBar from '../Components/HeaderBar';
@@ -37,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 function App(props) {
 	const { window } = props;
+	const [preferDarkMode, setDarkMode] = React.useState(true);
 	const classes = useStyles();
 	const theme = useTheme();
 	const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -52,52 +55,70 @@ function App(props) {
 		setTitle(title);
 	}
 
+	const handleDarkMode = () => {
+		setDarkMode(!preferDarkMode);
+	}
+
 	const container = window !== undefined ? () => window().document.body : undefined;
 
+	const mainTheme = React.useMemo(
+		() => createMuiTheme({
+			palette: {
+				type: preferDarkMode ? 'dark' : 'light',
+			},
+			typography: {
+				useNextVariants: true
+			}
+		}),
+		[preferDarkMode]
+	);
+
 	return (
-		<div className={classes.root}>
-			<HeaderBar menuOnClick={handleDrawerToggle} title={title}/>
-			<nav className={classes.drawer} aria-label="mailbox folders">
-				<Hidden smUp implementation="css">
-					<Drawer
-						container={container}
-						variant="temporary"
-						anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-						open={mobileOpen}
-						onClose={handleDrawerToggle}
-						classes={{
-							paper: classes.drawerPaper,
-						}}
-						ModalProps={{
-							keepMounted: true, // Better open performance on mobile.
-						}}
-					>
-						<SideBar onClick={handleDrawerToggle}/>
-					</Drawer>
-				</Hidden>
-				<Hidden xsDown implementation="css">
-					<Drawer
-						classes={{
-							paper: classes.drawerPaper,
-						}}
-						variant="permanent"
-						open
-					>
-						<SideBar onClick={() => {}}/>
-					</Drawer>
-				</Hidden>
-			</nav>
-			<main className={classes.content}>
-				<div className={classes.toolbar} />
-				<Grid container justify='center' alignItems='stretch'>
-					<Grid item xs={12}>
-						<Paper className={classes.gridPaper}>
-							<Router onRoute={handleOnRoute}/>
-						</Paper>
+		<MuiThemeProvider theme={mainTheme}>
+			<div className={classes.root}>
+				<HeaderBar menuOnClick={handleDrawerToggle} title={title} darkMode={handleDarkMode} />
+				<nav className={classes.drawer} aria-label="mailbox folders">
+					<Hidden smUp implementation="css">
+						<Drawer
+							container={container}
+							variant="temporary"
+							anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+							open={mobileOpen}
+							onClose={handleDrawerToggle}
+							classes={{
+								paper: classes.drawerPaper,
+							}}
+							ModalProps={{
+								keepMounted: true, // Better open performance on mobile.
+							}}
+						>
+							<SideBar onClick={handleDrawerToggle}/>
+						</Drawer>
+					</Hidden>
+					<Hidden xsDown implementation="css">
+						<Drawer
+							classes={{
+								paper: classes.drawerPaper,
+							}}
+							variant="permanent"
+							open
+						>
+							<SideBar onClick={() => {}}/>
+						</Drawer>
+					</Hidden>
+				</nav>
+				<main className={classes.content}>
+					<div className={classes.toolbar} />
+					<Grid container justify='center' alignItems='stretch'>
+						<Grid item xs={12}>
+							<Paper className={classes.gridPaper}>
+								<Router onRoute={handleOnRoute}/>
+							</Paper>
+						</Grid>
 					</Grid>
-				</Grid>
-			</main>
-		</div>
+				</main>
+			</div>	
+		</MuiThemeProvider>
 	);
 }
 

@@ -5,26 +5,14 @@ import './index.css';
 import App from './App/App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import { MuiThemeProvider, unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core/styles';
 import 'fontsource-roboto';
-
-const theme = createMuiTheme({
-	palette: {
-		type: 'dark',
-	},
-	typography: { 
-	   useNextVariants: true
-	}
- });
 
 ReactDOM.render(
 	<React.StrictMode>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-		<MuiThemeProvider theme={theme}>
-			<BrowserRouter>
-				<App />
-			</BrowserRouter>
-		</MuiThemeProvider>
+		<BrowserRouter>
+			<App />
+		</BrowserRouter>
 	</React.StrictMode>,
   document.getElementById('root')
 );
