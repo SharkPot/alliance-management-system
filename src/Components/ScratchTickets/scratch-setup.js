@@ -38,6 +38,7 @@ import ac_crd from '../../Resources/ac_crd.bmp';
 import ac_hrw from '../../Resources/ac_hrw.bmp';
 import ac_ul from '../../Resources/ac_ul.bmp';
 import ac_rcl from '../../Resources/ac_rcl.bmp';
+import ac_cfh from '../../Resources/ac_cfh.bmp';
 
 import fun_mar2020 from '../../Resources/fun_mar2020.bmp';
 import fun_apr2020_pt1 from '../../Resources/fun_apr2020_pt1.bmp';
@@ -63,6 +64,7 @@ import sg_asgu from '../../Resources/sg_asgu.bmp';
 
 const SCRATCH_LIST = {
 	AC: [
+		{ name: 'Cosmo Fleet Heroes', img: ac_cfh, id:'ac_cfh', valid: '2/17/2021 - 3/17/2021', route:'https://pso2.com/news/scratch-tickets/cosmofleetheroes' },
 		{ name: 'Blazing Luster', img: ac_bllu, id:'ac_bllu', valid: '2/2/2021 - 3/2/2021' ,route:'https://pso2.com/news/scratch-tickets/blazingluster' },
 		{ name: 'Designer Dreams III', img: ac_dd3, id:'ac_dd3', valid: '1/26/2021 - 2/23/2021' ,route:'https://pso2.com/news/scratch-tickets/designerdreamsIII' },
 		{ name: 'Sweet Romance', img: ac_swro, id:'ac_swro', valid: '1/19/2021 - 2/16/2021 ' ,route:'https://pso2.com/news/scratch-tickets/sweetromance' },
@@ -113,6 +115,7 @@ const SCRATCH_LIST = {
 		{ name: 'Fallen Heroes ', img: sg_fahe,id:'sg_fahe', valid: '7/15/2020 - 1/13/2021 ' ,route:'https://pso2.com/news/scratch-tickets/fallenheroes' },
 	],
 	FUN: [
+		{ name: 'Cosmo Fleet Heroes', img: ac_cfh, id:'ac_cfh', valid: '02/17/2021 - 02/24/2021', route:'https://pso2.com/news/scratch-tickets/cosmofleetheroes' },
 		{ name: 'Blazing Luster', img: ac_bllu,id:'ac_bllu', valid: '02/03/2021 - 02/10/2021' ,route:'https://pso2.com/news/scratch-tickets/blazingluster' },
 		{ name: 'Designer Dreams III', img: ac_dd3,id:'ac_dd3', valid: '01/27/2021 - 02/03/2021' ,route:'https://pso2.com/news/scratch-tickets/designerdreamsIII' },
 		{ name: 'Sweet Romance', img: ac_swro,id:'ac_swro', valid: '01/20/2021 - 01/27/2020' ,route:'https://pso2.com/news/scratch-tickets/sweetromance' },
