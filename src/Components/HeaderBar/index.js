@@ -6,8 +6,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import WbSunny from '@material-ui/icons/WbSunny';
+import Brightness2 from '@material-ui/icons/Brightness2';
+import { Button } from '@material-ui/core';
 
 const drawerWidth = 240;
+const sliderMargin = 240;
 
 const useStyles = makeStyles((theme) => ({
 	appBar: {
@@ -22,11 +26,19 @@ const useStyles = makeStyles((theme) => ({
 			display: 'none',
 		},
 	},
+	darkmodeSwitch: {
+		// marginLeft:  `calc(100% - ${sliderMargin}px)`
+	}
 }));
 
 export default function HeaderBar(props) {
 	const classes = useStyles();
-	// console.log('Header props',props);
+	const [mode, setMode] = React.useState(true);
+
+	const toggleMode = () => {
+		setMode(!mode);
+		props.darkMode();
+	}
 
 	return (
 		<div>
@@ -45,6 +57,9 @@ export default function HeaderBar(props) {
 					<Typography variant="h6" noWrap>
 						{props.title}
           			</Typography>
+					<Button onClick={toggleMode}>
+						{mode ? <Brightness2/> : <WbSunny />}
+					</Button>
 				</Toolbar>
 			</AppBar>
 		</div>
