@@ -5,11 +5,10 @@ import Tab from '@material-ui/core/Tab';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
 import { useLocation,useHistory } from 'react-router-dom';
 
 import SCRATCH_LIST from './scratch-setup';
@@ -35,6 +34,7 @@ function ScratchTicket(props) {
 	let location = useLocation();
 	let history = useHistory();
 	const [value, setValue] = React.useState(0);
+	const [snackBarOpen, setSnackBarOpen] = React.useState(false);
 	const [data, setData] = React.useState(SCRATCH_LIST.AC);
 
 	const handleChange = (event, newValue) => {
@@ -83,9 +83,16 @@ function ScratchTicket(props) {
 	},[props,location,value,data])
 
 	const handleCardClick = (url) => {
-		if(!url) return;
+		if(!url) {
+			setSnackBarOpen(true);
+			return;
+		}
 		const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
 		if (newWindow) newWindow.opener = null
+	}
+
+	const handleSnackBarClose = () => {
+		setSnackBarOpen(false);
 	}
 
 	return (
@@ -119,21 +126,17 @@ function ScratchTicket(props) {
 									</Typography>
 								</CardContent>
 							</CardActionArea>
-							{/* <CardActions>
-								<Button size='small' color='primary'>
-									Share
-								</Button>
-								<Button size='small' color='primary'>
-									Learn More
-								</Button>
-								<Typography>
-										{location.pathname + '#' + val.id}
-									</Typography>
-							</CardActions> */}
 						</Card>
 					</Grid>
 				))}
 			</Grid>
+			<Snackbar
+				anchorOrigin={{vertical:'bottom',horizontal:'center'}}
+				open={snackBarOpen}
+				autoHideDuration={6000}
+				onClose={handleSnackBarClose}
+				message='No official PSO2 site can be located.'
+			/>
 		</div>
 	);
 }
