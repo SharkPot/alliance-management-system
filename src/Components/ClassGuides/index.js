@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
 		marginBottom: theme.spacing(2),
 	},
 	iframeDiv:{
-		backgroundColor: theme.palette.text.primary
+		backgroundColor: '#fff'
 	}
 }));
 
