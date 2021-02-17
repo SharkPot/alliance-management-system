@@ -36,11 +36,6 @@ const GENERAL_GUIDE_LIST = {
 			data:[`- Supress Bar Lodos ( 250,000 meseta )`, `- Item Procurement ( 100,000 meseta )`, `- Complete Expedetions/Quests ( 99,000-130,000 meseta )`,`- Supress Enemies (60,000-130,000 meseta)`],
 			title:'l1'
 		},
-		// {
-		// 	type:'image',
-		// 	data:yerkesImg,
-		// 	title:'02'
-		// }
 		{
 			type:'paragraph',
 			data:`Yerkes in Cafe Area has 5 Client Order's ( each worth 100,000 meseta ) for certain harvesting materials. These items are:`,
@@ -57,6 +52,17 @@ const GENERAL_GUIDE_LIST = {
 			data:'Weekly Arks Quest can reward upto 2 million meseta. These Quests refresh weekly. These quests generally requires you to do some basic tasks such as enhance items or complete advance quests(AQ) or extreme quests(EQ) etc.',
 			heading:`Arks Weekly Quest`,
 			title:'p3'
+		},
+		{
+			type:'paragraph',
+			data:'Player Shop is the easiest way to earn meseta. Some of the most worthwhile items to sell are:',
+			heading:'PLayer Shop and Trading (Premium Only)',
+			title:'p4'
+		},
+		{
+			type:'list',
+			data:[`- Latest AC scratch items such as Hairs, Poses etc.`,`- Room furnitures can potentially have good returns.`,`- High slot(6+), Medium slot(3+) units and weapons with certain affixes can be very good meseta.`,`- Always check price for any affixes such as souls, factors, reverie, glares.`,`- Best time to sell affixes is around time when Affix Boost week comes in. The price spike during these events is very good to make meseta.`],
+			title:'l3'
 		}
 	],
 	Gear:[
