@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({

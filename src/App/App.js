@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { MuiThemeProvider, unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import SideBar from '../Components/SideBar';
 import HeaderBar from '../Components/HeaderBar';
