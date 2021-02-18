@@ -56,7 +56,7 @@ const GENERAL_GUIDE_LIST = {
 		{
 			type:'paragraph',
 			data:'Player Shop is the easiest way to earn meseta. Some of the most worthwhile items to sell are:',
-			heading:'PLayer Shop and Trading (Premium Only)',
+			heading:'Player Shop and Trading (Premium Only)',
 			title:'p4'
 		},
 		{
