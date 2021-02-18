@@ -20,27 +20,11 @@ function Home(props) {
 
 	return (
 		<div>
-			<Typography variant='subtitle1'>Para 1</Typography>
+			<Typography variant='subtitle1'>Urgent Quest Schedule</Typography>
 			<iframe title='UQ Calendar' src="https://calendar.google.com/calendar/embed?src=nujrnhog654g3v0m0ljmjbp790%40group.calendar.google.com&amp;mode=AGENDA&amp;color=%23616161&amp;hl=en&amp;showNav=0&amp;showTabs=0&amp;showPrint=0&amp;showCalendars=0" scrolling="no" width="100%" height="500" frameBorder="0" />
 			<Divider className={classes.divider} />
-			<Typography variant='subtitle1'>Para 2</Typography>
-			<Typography paragraph>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-				ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-				facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-				gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-				donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-				adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-				Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-				imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-				arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-				donec massa sapien faucibus et molestie ac.
-            </Typography>
-			<div>
-                <Link to='/about'>
-                    Go to about
-                </Link>
-            </div>
+			<Typography variant='subtitle1'>Casino Boost Schedule</Typography>
+			<iframe title='CS Calendar'src="https://calendar.google.com/calendar/embed?src=YWJoaW5hYmRhczE5OTZAZ21haWwuY29t&amp;src=cWIwYzE5dDg3MHNzcm9lb245bjExdWJ0OWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;src=cmMxYWY3bDFzdjNtdDk5NWh2anFwaTRxYjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%237986CB&amp;color=%23E4C441&amp;color=%239E69AF&amp;mode=AGENDA&amp;showTitle=0&amp;showNav=0&amp;showDate=1&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=1" scrolling="no" width="100%" height="500" frameBorder="0" />
 		</div>
 	)
 }
