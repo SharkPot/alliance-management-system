@@ -8,10 +8,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import WbSunny from '@material-ui/icons/WbSunny';
 import Brightness2 from '@material-ui/icons/Brightness2';
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 const drawerWidth = 240;
-const sliderMargin = 240;
 
 const useStyles = makeStyles((theme) => ({
 	appBar: {
@@ -26,9 +26,6 @@ const useStyles = makeStyles((theme) => ({
 			display: 'none',
 		},
 	},
-	darkmodeSwitch: {
-		// marginLeft:  `calc(100% - ${sliderMargin}px)`
-	}
 }));
 
 export default function HeaderBar(props) {
@@ -45,21 +42,27 @@ export default function HeaderBar(props) {
 			<CssBaseline />
 			<AppBar position="fixed" className={classes.appBar}>
 				<Toolbar>
-					<IconButton
-						color="inherit"
-						aria-label="open drawer"
-						edge="start"
-						onClick={() => props.menuOnClick(1)}
-						className={classes.menuButton}
-					>
-						<MenuIcon />
-					</IconButton>
-					<Typography variant="h6" noWrap>
-						{props.title}
-          			</Typography>
-					<Button onClick={toggleMode}>
-						{mode ? <Brightness2/> : <WbSunny />}
-					</Button>
+					<Grid container>
+						<Grid item xs={11}>
+							<IconButton
+								color="inherit"
+								aria-label="open drawer"
+								edge="start"
+								onClick={() => props.menuOnClick(1)}
+								className={classes.menuButton}
+							>
+								<MenuIcon />
+							</IconButton>
+							<Typography variant="h6" display='inline' noWrap>
+								{props.title}
+							</Typography>
+						</Grid>
+						<Grid item xs={1}>
+							<Button onClick={toggleMode}>
+								{mode ? <Brightness2/> : <WbSunny />}
+							</Button>
+						</Grid>
+					</Grid>
 				</Toolbar>
 			</AppBar>
 		</div>
