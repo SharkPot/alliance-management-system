@@ -14,7 +14,7 @@ function Home(props) {
 	const classes = useStyles();
 
 	useEffect(() => {
-		props.onRoute('Home')
+		props.onRoute('Calendar')
 	})
 
 	return (
