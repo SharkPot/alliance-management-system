@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App/App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
@@ -10,9 +10,9 @@ import 'fontsource-roboto';
 ReactDOM.render(
 	<React.StrictMode>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-		<BrowserRouter>
+		<HashRouter basename='/'>
 			<App />
-		</BrowserRouter>
+		</HashRouter>
 	</React.StrictMode>,
   document.getElementById('root')
 );
