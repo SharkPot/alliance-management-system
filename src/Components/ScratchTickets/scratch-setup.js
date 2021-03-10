@@ -39,6 +39,10 @@ import ac_hrw from '../../Resources/ac_hrw.bmp';
 import ac_ul from '../../Resources/ac_ul.bmp';
 import ac_rcl from '../../Resources/ac_rcl.bmp';
 import ac_cfh from '../../Resources/ac_cfh.bmp';
+import ac_als from '../../Resources/ac_als.bmp';
+import ac_tc3 from '../../Resources/ac_tc3.bmp';
+import ac_adl from '../../Resources/ac_adl.bmp';
+import ac_spo from '../../Resources/ac_spo.bmp';
 
 import fun_mar2020 from '../../Resources/fun_mar2020.bmp';
 import fun_apr2020_pt1 from '../../Resources/fun_apr2020_pt1.bmp';
@@ -64,6 +68,10 @@ import sg_asgu from '../../Resources/sg_asgu.bmp';
 
 const SCRATCH_LIST = {
 	AC: [
+		{ name: ' Spellbound Operative', img: ac_spo, id:'ac_spo', valid: '3/10/2021 - 4/7/2021', route:'https://pso2.com/news/scratch-tickets/spellboundoperative' },
+		{ name: 'ARKS Dream Live', img: ac_adl, id:'ac_adl', valid: '3/3/2021 - 3/31/2021', route:'https://pso2.com/news/scratch-tickets/arksdreamlive' },
+		{ name: 'Throwback Collection III', img: ac_tc3, id:'ac_tc3', valid: '3/3/2021 - 3/10/2021', route:'https://pso2.com/news/scratch-tickets/throwbackcoll3' },
+		{ name: 'ARKS Last Stand', img: ac_als, id:'ac_als', valid: '2/24/2021 - 3/24/2021', route:'https://pso2.com/news/scratch-tickets/arkslaststand' },
 		{ name: 'Cosmo Fleet Heroes', img: ac_cfh, id:'ac_cfh', valid: '2/17/2021 - 3/17/2021', route:'https://pso2.com/news/scratch-tickets/cosmofleetheroes' },
 		{ name: 'Blazing Luster', img: ac_bllu, id:'ac_bllu', valid: '2/2/2021 - 3/2/2021' ,route:'https://pso2.com/news/scratch-tickets/blazingluster' },
 		{ name: 'Designer Dreams III', img: ac_dd3, id:'ac_dd3', valid: '1/26/2021 - 2/23/2021' ,route:'https://pso2.com/news/scratch-tickets/designerdreamsIII' },
@@ -115,6 +123,9 @@ const SCRATCH_LIST = {
 		{ name: 'Fallen Heroes ', img: sg_fahe,id:'sg_fahe', valid: '7/15/2020 - 1/13/2021 ' ,route:'https://pso2.com/news/scratch-tickets/fallenheroes' },
 	],
 	FUN: [
+		{ name: ' Spellbound Operative', img: ac_spo, id:'ac_spo', valid: '3/10/2021 - 3/17/2021', route:'https://pso2.com/news/scratch-tickets/spellboundoperative' },
+		{ name: 'ARKS Dream Live', img: ac_adl, id:'ac_adl', valid: '3/3/2021 - 3/10/2021', route:'https://pso2.com/news/scratch-tickets/arksdreamlive' },
+		{ name: 'ARKS Last Stand', img: ac_als, id:'ac_als', valid: '2/24/2021 - 3/3/2021', route:'https://pso2.com/news/scratch-tickets/arkslaststand' },
 		{ name: 'Cosmo Fleet Heroes', img: ac_cfh, id:'ac_cfh', valid: '02/17/2021 - 02/24/2021', route:'https://pso2.com/news/scratch-tickets/cosmofleetheroes' },
 		{ name: 'Blazing Luster', img: ac_bllu,id:'ac_bllu', valid: '02/03/2021 - 02/10/2021' ,route:'https://pso2.com/news/scratch-tickets/blazingluster' },
 		{ name: 'Designer Dreams III', img: ac_dd3,id:'ac_dd3', valid: '01/27/2021 - 02/03/2021' ,route:'https://pso2.com/news/scratch-tickets/designerdreamsIII' },
