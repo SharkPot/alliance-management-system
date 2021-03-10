@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/alliance-management-system/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/alliance-management-system/static/js/main.6a495f82.chunk.js",
-    "main.js.map": "/alliance-management-system/static/js/main.6a495f82.chunk.js.map",
+    "main.js": "/alliance-management-system/static/js/main.e2cc94b8.chunk.js",
+    "main.js.map": "/alliance-management-system/static/js/main.e2cc94b8.chunk.js.map",
     "runtime-main.js": "/alliance-management-system/static/js/runtime-main.68b77fe7.js",
     "runtime-main.js.map": "/alliance-management-system/static/js/runtime-main.68b77fe7.js.map",
     "static/css/2.0ce8b9eb.chunk.css": "/alliance-management-system/static/css/2.0ce8b9eb.chunk.css",
@@ -16,6 +16,8 @@
     "static/css/2.0ce8b9eb.chunk.css.map": "/alliance-management-system/static/css/2.0ce8b9eb.chunk.css.map",
     "static/css/main.6dea0f05.chunk.css.map": "/alliance-management-system/static/css/main.6dea0f05.chunk.css.map",
     "static/js/2.f108360e.chunk.js.LICENSE.txt": "/alliance-management-system/static/js/2.f108360e.chunk.js.LICENSE.txt",
+    "static/media/ac_adl.f625f6a5.bmp": "/alliance-management-system/static/media/ac_adl.f625f6a5.bmp",
+    "static/media/ac_als.d94cf6d5.bmp": "/alliance-management-system/static/media/ac_als.d94cf6d5.bmp",
     "static/media/ac_bb.91f5c5e9.bmp": "/alliance-management-system/static/media/ac_bb.91f5c5e9.bmp",
     "static/media/ac_bllu.9a84f61e.bmp": "/alliance-management-system/static/media/ac_bllu.9a84f61e.bmp",
     "static/media/ac_bw.7dbd16de.bmp": "/alliance-management-system/static/media/ac_bw.7dbd16de.bmp",
@@ -50,9 +52,11 @@
     "static/media/ac_sh.34cdaa8a.bmp": "/alliance-management-system/static/media/ac_sh.34cdaa8a.bmp",
     "static/media/ac_sip.79159808.bmp": "/alliance-management-system/static/media/ac_sip.79159808.bmp",
     "static/media/ac_sk.bb14f577.bmp": "/alliance-management-system/static/media/ac_sk.bb14f577.bmp",
+    "static/media/ac_spo.b18dc574.bmp": "/alliance-management-system/static/media/ac_spo.b18dc574.bmp",
     "static/media/ac_swro.bf1fa2a2.bmp": "/alliance-management-system/static/media/ac_swro.bf1fa2a2.bmp",
     "static/media/ac_tc.a62eaa7f.bmp": "/alliance-management-system/static/media/ac_tc.a62eaa7f.bmp",
     "static/media/ac_tc2.f35400b7.bmp": "/alliance-management-system/static/media/ac_tc2.f35400b7.bmp",
+    "static/media/ac_tc3.1629ea60.bmp": "/alliance-management-system/static/media/ac_tc3.1629ea60.bmp",
     "static/media/ac_ul.967da842.bmp": "/alliance-management-system/static/media/ac_ul.967da842.bmp",
     "static/media/ac_ult.6286922c.bmp": "/alliance-management-system/static/media/ac_ult.6286922c.bmp",
     "static/media/ac_vir.1c078e70.bmp": "/alliance-management-system/static/media/ac_vir.1c078e70.bmp",
@@ -99,6 +103,6 @@
     "static/css/2.0ce8b9eb.chunk.css",
     "static/js/2.f108360e.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.6a495f82.chunk.js"
+    "static/js/main.e2cc94b8.chunk.js"
   ]
 }
